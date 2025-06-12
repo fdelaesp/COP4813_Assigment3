@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Time-Based Image Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 2rem;
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+    }
+    #timeImage {
+      max-width: 90%;
+      height: auto;
+      margin-top: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Francisco de La Espriella</h1>
+  <p><strong>Course:</strong> COP4813</p>
+  <p><strong>Major:</strong> Applied Mathematics & Computer Science</p>
+  <p>Hello! This page changes its image based on your local time. Enjoy the view!</p>
+
+  <img id="timeImage" src="" alt="Time of day image" />
+
+  <script>
+    function setImageForTime() {
+      const now = new Date();
+      const hour = now.getHours();
+      let imgSrc, altText;
+
+      if (hour >= 6 && hour < 12) {
+        imgSrc = 'images/morning.jpg';
+        altText = 'A bright morning sunrise';
+      } else if (hour >= 12 && hour < 18) {
+        imgSrc = 'images/afternoon.jpg';
+        altText = 'A sunny afternoon scene';
+      } else {
+        imgSrc = 'images/night.jpg';
+        altText = 'A peaceful night sky';
+      }
+
+      const imgEl = document.getElementById('timeImage');
+      imgEl.src = imgSrc;
+      imgEl.alt = altText;
+    }
+
+    // On load, select the right image
+    window.addEventListener('DOMContentLoaded', setImageForTime);
+  </script>
+</body>
+</html>
