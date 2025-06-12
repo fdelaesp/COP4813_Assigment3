@@ -3,9 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- Point this at your actual Pages URL -->
-  <base href="https://fdelaesp.github.io/COP4813_Assigment3/" />
-
   <title>Time-Based Image Display</title>
   <style>
     body {
@@ -37,25 +34,27 @@
     function setImageForTime() {
       const now = new Date();
       const hour = now.getHours();
-      let imgSrc, altText;
+      let imgPath, altText;
+
+      // use absolute path from your GitHub Pages site root:
+      const base = 'https://fdelaesp.github.io/COP4813_Assigment3/';
 
       if (hour >= 6 && hour < 12) {
-        imgSrc = 'images/morning.jpg';
+        imgPath = 'images/morning.jpg';
         altText = 'A bright morning sunrise';
       } else if (hour >= 12 && hour < 18) {
-        imgSrc = 'images/afternoon.jpg';
+        imgPath = 'images/afternoon.jpg';
         altText = 'A sunny afternoon scene';
       } else {
-        imgSrc = 'images/night.jpg';
+        imgPath = 'images/night.jpg';
         altText = 'A peaceful night sky';
       }
 
       const imgEl = document.getElementById('timeImage');
-      imgEl.src = imgSrc;
+      imgEl.src = base + imgPath;
       imgEl.alt = altText;
     }
 
-    // On page load, pick the right image
     window.addEventListener('DOMContentLoaded', setImageForTime);
   </script>
 </body>
