@@ -1,7 +1,11 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Make sure this matches your GitHub Pages URL -->
+  <base href="https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/" />
+
   <title>Time-Based Image Display</title>
   <style>
     body {
@@ -24,7 +28,7 @@
 <body>
   <h1>Francisco de La Espriella</h1>
   <p><strong>Course:</strong> COP4813</p>
-  <p><strong>Major:</strong> Applied Mathematics & Computer Science</p>
+  <p><strong>Major:</strong> Applied Mathematics &amp; Computer Science</p>
   <p>Hello! This page changes its image based on your local time. Enjoy the view!</p>
 
   <img id="timeImage" src="" alt="Time of day image" />
@@ -51,7 +55,7 @@
       imgEl.alt = altText;
     }
 
-    // On load, select the right image
+    // On page load, pick the right image
     window.addEventListener('DOMContentLoaded', setImageForTime);
   </script>
 </body>
